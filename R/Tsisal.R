@@ -1,5 +1,5 @@
 Tsisal <- function(Y_raw, K = NULL, knowRef = NULL,
-                   possibleCellNumber = 3:15){
+                   possibleCellNumber = 3:15, topN = 50){
 
      # Y_raw is the DNA methylation 450K array data from complex tissues,
      # rows for CpG sites and columns for samples.
@@ -18,7 +18,7 @@ Tsisal <- function(Y_raw, K = NULL, knowRef = NULL,
      reduceYmat = Y_raw[outRF$updatedInx,]
 
      ## simplex corner identification and marker selection
-     tsisal_res = mysisal(reduceYmat, K = K, topN = 50)
+     tsisal_res = mysisal(reduceYmat, K = K, topN = topN)
      estProp = tsisal_res$estProp
      selMarker = tsisal_res$selMarker
 
